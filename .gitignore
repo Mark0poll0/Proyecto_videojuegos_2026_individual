@@ -1,0 +1,23 @@
+# --- PYTHON ---
+# caché 
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- ENTORNOS VIRTUALES ---
+venv/
+ENV/
+vh/
+
+# --- LOGS Y DATOS ---
+*.log
+*.sqlite3
+*.db
+
+# --- DISTRIBUCIÓN / PAQUETES ---
+dist/
+build/
+*.egg-info/
+
+# --- CONFIGURACIÓN DE VS CODE ---
+.vscode/
