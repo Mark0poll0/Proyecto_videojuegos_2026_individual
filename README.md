@@ -25,7 +25,7 @@ El contenido está organizado siguiendo una jerarquía profesional para facilita
 
 ##  Autor , Yo p xd
 
-* **Mark Christian Quispe Gonzales** - *Desarrollo Integral* - [MarkOpollO](https://github.com/MarkOpollO)
+* **Mark Christian Quispe Gonzales** - *Desarrollo Integral* - [Mark0poll0](https://github.com/Mark0poll0)
 * **Institución:** Universidad Nacional Mayor de San Marcos (UNMSM)
 * **Carrera:** Computación Científica - Curso Electivo Creacion de Videojuegos y Desarrollo Movil
 
