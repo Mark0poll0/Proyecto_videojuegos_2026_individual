@@ -1,4 +1,4 @@
-# The Specter's Path 👻 | El JUEGO
+# The Specter's Path 👻 | El JUEGO | LEER SECCION DE COMO COMPILAR
 
 ![Unity](https://img.shields.io/badge/Unity-6000.0.4.3f1-black?style=for-the-badge&logo=unity)
 ![C#](https://img.shields.io/badge/C%23-%23178600.svg?style=for-the-badge&logo=csharp&logoColor=white)
@@ -39,3 +39,26 @@ El contenido está organizado siguiendo una jerarquía profesional para facilita
 2. Clona el repositorio:
    ```bash
    git clone https://github.com/Mark0poll0/Proyecto_videojuegos_2026_individual.git
+
+
+# COMO COMPILAR  (Importante)
+
+Al clonar el repositorio por primera vez, es normal que Unity abra una escena vacía llamada **"Untitled"**. Para ver el proyecto correctamente, sigue estos pasos:
+
+1. **Abrir la escena DEMO :** En la carpeta *Project*, navega a la siguiente ruta:
+   `Assets` > `PROJECT` > `SCENES`
+2. **Para compilar :** Haz doble clic en el archivo llamado **DEMO** (icono de Unity) . listo la escena para compilar arriba en el centro en el simbolo de play 
+3. **Implementacion de PRESENTACION 1 :** Por Ahora solo hay movimiento WASD
+
+
+> Si al darle al botón de **Play** no sucede nada, asegúrate de que la escena **DEMO** esté abierta en el hierarchy con el doble click , o solo arrastre la escena al hierarchy ,osea el espacio de la izquierda .
+
+##  Estado del Desarrollo (MVP)
+Actualmente, el proyecto se encuentra en fase de prototipo funcional (Mínimo Producto Viable):
+- [x] **Sistema de Movimiento:** Implementación de WASD (Input System).
+- [x] **Entorno:** Prototipo de terreno irregular para pruebas de colisión.
+- [x] **Cámara:** Seguimiento básico con Cinemachine.
+
+## 📅 Bitácora de Avances
+- **08/05/2026**: Integración de Cinemachine y configuración del Input System para WASD.
+- **09/05/2026**: Limpieza de estructura de carpetas y configuración de Git estable.

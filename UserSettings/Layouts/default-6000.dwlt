@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 392
     height: 640.8
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -274,8 +274,8 @@ MonoBehaviour:
     y: 0
     width: 440.80005
     height: 1012.80005
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -695,10 +695,8 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -57352
-      - m_Data: -57088
-      - m_Data: -52864
-      - m_Data: -51844
+      - m_Data: -53976
+      - m_Data: -51832
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1217,11 +1215,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.15242185, y: 0.010961072, z: -0.0017256269, w: 0.988386}
     speed: 2
-    m_Value: {x: 0.15240186, y: 0.010959635, z: -0.0017254007, w: 0.9882564}
+    m_Value: {x: -0.15242185, y: -0.010961072, z: 0.0017256269, w: -0.988386}
   m_Size:
     m_Target: 22.698267
     speed: 2
-    m_Value: 21.720829
+    m_Value: 22.698267
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1408,7 +1406,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_Data: 66760
+    m_Data: 0
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1458,7 +1456,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/PROJECT/SCENES
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1468,7 +1466,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets
+  - Assets/PROJECT/SCENES
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\markq\Proyecto_videojuegos_2026_individual
   m_LockTracker:
@@ -1477,13 +1475,13 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 13.999939}
     m_SelectedIDs:
-    - m_Data: 66702
+    - m_Data: 66788
     m_LastClickedID:
-      m_Data: 66702
+      m_Data: 66788
     m_ExpandedIDs:
     - m_Data: 0
+    - m_Data: 66700
     - m_Data: 66702
-    - m_Data: 66704
     - m_Data: 2147483647
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1547,7 +1545,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: []
     m_LastClickedEntityId:
       m_Data: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 65530
     - m_Data: 54036
