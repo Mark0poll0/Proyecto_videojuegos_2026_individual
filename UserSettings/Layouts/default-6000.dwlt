@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2048
     height: 1068.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -856,7 +856,7 @@ MonoBehaviour:
       sizeOverridden: 0
     - dockPosition: 0
       containerId: overlay-toolbar__left
-      displayed: 0
+      displayed: 1
       id: Terrain Tools
       index: 0
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Folded":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
@@ -1124,7 +1124,7 @@ MonoBehaviour:
     - containerId: overlay-toolbar__top
       scrollOffset: 0
     - containerId: overlay-toolbar__left
-      scrollOffset: 0
+      scrollOffset: 0.000061035156
     - containerId: overlay-dynamic-panel--left
       scrollOffset: 0
     - containerId: overlay-container--left
@@ -1163,9 +1163,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -3.4713075, y: -4.9956493, z: 19.1176}
+    m_Target: {x: 30.65638, y: -175.71217, z: 332.7994}
     speed: 2
-    m_Value: {x: -3.4713075, y: -4.9956493, z: 19.1176}
+    m_Value: {x: 30.65638, y: -175.71217, z: 332.7994}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1212,13 +1212,13 @@ MonoBehaviour:
     m_gridOpacity: 0.5
     m_NearestPlaneToHandleMode: 0
   m_Rotation:
-    m_Target: {x: 0.15242185, y: 0.010961072, z: -0.0017256269, w: 0.988386}
+    m_Target: {x: -0.24287513, y: -0.03284482, z: 0.008413947, w: -0.96976024}
     speed: 2
-    m_Value: {x: -0.15242185, y: -0.010961072, z: 0.0017256269, w: -0.988386}
+    m_Value: {x: -0.24287513, y: -0.03284482, z: 0.008413947, w: -0.96976024}
   m_Size:
-    m_Target: 22.698267
+    m_Target: 198.1323
     speed: 2
-    m_Value: 22.698267
+    m_Value: 198.1323
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1455,7 +1455,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/PROJECT/SCENES
+    - Assets/PROJECT/WORLD/TERRAINtexture
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/PROJECT/SCENES
+  - Assets/PROJECT/WORLD/TERRAINtexture
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\markq\Proyecto_videojuegos_2026_individual
   m_LockTracker:
@@ -1474,12 +1474,12 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 13.999939}
     m_SelectedIDs:
-    - m_Data: 50666
+    - m_Data: 50668
     m_LastClickedID:
-      m_Data: 50666
+      m_Data: 50668
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 50306
+    - m_Data: 50308
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1513,7 +1513,7 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 50306
+    - m_Data: 50308
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1541,9 +1541,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: []
+    m_SelectedInstanceIDs:
+    - m_Data: 50138
     m_LastClickedEntityId:
-      m_Data: 0
+      m_Data: 50138
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 65530
@@ -1628,7 +1629,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectEntityId:
     m_Data: 0
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 8.799988
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
