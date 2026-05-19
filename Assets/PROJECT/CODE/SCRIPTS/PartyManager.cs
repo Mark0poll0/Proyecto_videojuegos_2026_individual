@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PartyManager : MonoBehaviour
 {
 
@@ -26,8 +25,8 @@ public class PartyManager : MonoBehaviour
         newPartyMember.Level = memberInfo.StartingLevel;
         newPartyMember.currentHP = memberInfo.baseHP;
         newPartyMember.maxHP = memberInfo.baseHP; // Usamos el baseHP directo
-        newPartyMember.Strength = memberInfo.baseSTR;
-        newPartyMember.Initiative = memberInfo.baseIniciative;
+        newPartyMember.Str = memberInfo.Str;
+        newPartyMember.Initiative = memberInfo.Initiative;
         newPartyMember.MemberBattleVisualPrefab = memberInfo.MemberBattleVisualPrefab;
         newPartyMember.MemberOverWorldVisualPrefab = memberInfo.MemberOverworldVisualPrefab;
 
@@ -41,7 +40,7 @@ public class PartyManager : MonoBehaviour
         public int Level;
         public int currentHP;
         public int maxHP;
-        public int Strength;
+        public int Str;
         public int Initiative;
         public int CurrExp;
         public int MaxExp;

@@ -8,9 +8,9 @@ public class PartyMemberinfo : ScriptableObject
     public string MemberName;
     public int StartingLevel;
     public int baseHP;
-    public int baseSTR;
-    public int baseIniciative;
-    public GameObject MemberBattleVisualPrefab ;
+    public int Str;
+    public int Initiative;
+    public GameObject MemberBattleVisualPrefab;
     public GameObject MemberOverworldVisualPrefab;
 
 
