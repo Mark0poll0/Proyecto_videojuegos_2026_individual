@@ -33,7 +33,13 @@ public class PartyManager : MonoBehaviour
         currentParty.Add(newPartyMember);
     }
 
-    [System.Serializable]
+    public List<PartyMember> GetCurrentParty()
+    {
+        return currentParty;
+    }
+}
+
+[System.Serializable]
     public class PartyMember
     {
         public string MemberName;
@@ -47,4 +53,3 @@ public class PartyManager : MonoBehaviour
         public GameObject MemberBattleVisualPrefab;
         public GameObject MemberOverWorldVisualPrefab;
     }
-}
