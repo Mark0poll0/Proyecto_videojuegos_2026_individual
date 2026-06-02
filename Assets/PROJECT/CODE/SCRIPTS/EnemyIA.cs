@@ -18,7 +18,9 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] private SpriteRenderer enemySprite;
     [SerializeField] private Animator anim;
 
-    // Datos estadísticos proporcionales de tu factoría
+    [Header("Ficha del Enemigo (ScriptableObject)")]
+    [SerializeField] private EnemyInfo informacionBase;
+    [SerializeField] private int nivelEnemigo = 1;
     private Enemy statsEnemigo;
     private int vidaActual;
     private int dañoAtaque;
@@ -33,6 +35,10 @@ public class EnemyIA : MonoBehaviour
     [Header("Alineación 2.5D")]
     [SerializeField] private float toleranciaAlineacionZ = 0.3f;
 
+    
+    private Vector3 direccionMovimientoCalculada;
+    private bool procesandoPersecucion;
+
     private void Start()
     {
         this.rb = GetComponent<Rigidbody>();
@@ -45,20 +51,42 @@ public class EnemyIA : MonoBehaviour
 
         this.rb.constraints = RigidbodyConstraints.FreezeRotation;
 
-        EnemyManager manager = FindAnyObjectByType<EnemyManager>();
-        if (manager != null && manager.GetCurrentEnemies().Count > 0)
+        // Ignoramos el EnemyManager para las pruebas locales y calculamos todo con el Inspector
+        if (this.informacionBase != null)
         {
-            this.statsEnemigo = manager.GetCurrentEnemies()[0];
-            this.vidaActual = this.statsEnemigo.currentHP;
-            this.dañoAtaque = this.statsEnemigo.Strength;
+            float modificadorNivel = 0.5f * this.nivelEnemigo;
 
-            Debug.Log($"[IA] {this.statsEnemigo.EnemyName} cargado físicamente con {this.vidaActual} HP y {this.dañoAtaque} de Daño.");
+            // Calculamos Vida Máxima basada en el nivel del Inspector
+            int maxHP = Mathf.RoundToInt(this.informacionBase.baseHP + (this.informacionBase.baseHP * modificadorNivel));
+            this.vidaActual = maxHP;
+
+            // Calculamos Fuerza basada en el nivel del Inspector
+            this.dañoAtaque = Mathf.RoundToInt(this.informacionBase.baseStr + (this.informacionBase.baseStr * modificadorNivel));
+
+            // Inicializamos la barra de vida flotante con los valores correctos calculados
+            BattleVisuals misVisuales = GetComponentInChildren<BattleVisuals>();
+            if (misVisuales != null)
+            {
+                misVisuales.SetStartingValues(this.vidaActual, maxHP, this.nivelEnemigo);
+            }
+
+            Debug.Log($"[IA Unificada] {this.informacionBase.EnemyName} inicializado en Overworld. Nivel: {this.nivelEnemigo} | HP: {this.vidaActual} | Daño: {this.dañoAtaque}");
+        }
+        else
+        {
+            Debug.LogError($"[IA Error] No tienes asignado el ScriptableObject 'Informacion Base' en el Inspector de {gameObject.name}");
         }
     }
 
     private void Update()
     {
-        if (this.targetPlayer == null || this.estaAtacando) return;
+       
+        if (this.targetPlayer == null || this.estaAtacando)
+        {
+            this.direccionMovimientoCalculada = Vector3.zero;
+            this.procesandoPersecucion = false;
+            return;
+        }
 
         float distanciaEnX = Mathf.Abs(this.targetPlayer.position.x - this.transform.position.x);
         float distanciaEnZ = Mathf.Abs(this.targetPlayer.position.z - this.transform.position.z);
@@ -68,76 +96,110 @@ public class EnemyIA : MonoBehaviour
 
         if (distanciaEnX <= this.rangoAtaque && estaAlineadoEnZ && distanciaTridimensional <= this.rangoDeteccion)
         {
-            // ⚔️ ESTADO 1: ATACANDO (Muro sólido cinemático)
-            if (!this.rb.isKinematic)
-            {
-                this.rb.linearVelocity = Vector3.zero; // Frenado legal antes del cambio
-                this.rb.isKinematic = true;            // Bloqueo total a empujones
-            }
+           
+            this.direccionMovimientoCalculada = Vector3.zero;
+            this.procesandoPersecucion = false;
+
             IntentarAtacar();
         }
         else if (distanciaTridimensional <= this.rangoDeteccion)
         {
-            // 🏃‍♂️ ESTADO 2: PERSIGUIENDO (Cuerpo dinámico móvil)
-            if (this.rb.isKinematic)
-            {
-                this.rb.isKinematic = false; // Liberamos para que acepte velocidad
-            }
-            PerseguirPlayer();
+            
+            this.procesandoPersecucion = true;
+            CalcularDireccionPersecucion();
         }
         else
         {
-            // 🛑 ESTADO 3: IDLE / FUERA DE VISTA
-            if (!this.rb.isKinematic)
-            {
-                this.rb.linearVelocity = Vector3.zero;
-                this.rb.isKinematic = true;
-            }
+            
+            this.direccionMovimientoCalculada = Vector3.zero;
+            this.procesandoPersecucion = false;
 
             if (this.anim != null) this.anim.SetBool("walk", false);
         }
     }
 
-    private void PerseguirPlayer()
+    private void FixedUpdate()
     {
-        if (this.rb.isKinematic) return; // Cláusula de seguridad para evitar advertencias
-
-        Vector3 direccionTotal = (this.targetPlayer.position - this.transform.position);
-        direccionTotal.y = 0f;
-
-        float distanciaEnZ = Mathf.Abs(direccionTotal.z);
-        Vector3 direccionMovimiento = direccionTotal.normalized;
-
-        if (distanciaEnZ <= this.toleranciaAlineacionZ)
+        if (this.estaAtacando)
         {
-            direccionMovimiento.z = 0f;
+            if (this.rb != null && !this.rb.isKinematic)
+            {
+                this.rb.linearVelocity = Vector3.zero;
+                this.rb.angularVelocity = Vector3.zero;
+            }
+            this.rb.isKinematic = true;
+            return;
         }
 
+        if (this.procesandoPersecucion && this.direccionMovimientoCalculada != Vector3.zero)
+        {
+            if (this.rb.isKinematic) this.rb.isKinematic = false;
+
+            Vector3 nuevaPosicion = this.transform.position + this.direccionMovimientoCalculada * this.velocidadEnemigo * Time.fixedDeltaTime;
+            this.rb.MovePosition(nuevaPosicion);
+        }
+        else
+        {
+            if (this.rb != null && !this.rb.isKinematic)
+            {
+                this.rb.linearVelocity = Vector3.zero;
+                this.rb.angularVelocity = Vector3.zero;
+            }
+            this.rb.isKinematic = true;
+        }
+    }
+
+    private void CalcularDireccionPersecucion()
+    {
+        Vector3 direccionTotal = (this.targetPlayer.position - this.transform.position);
+        direccionTotal.y = 0f; // Ignoramos desfases verticales
+
+        float distanciaEnZ = Mathf.Abs(direccionTotal.z);
+        Vector3 direccionFiltrada = direccionTotal.normalized;
+
+        // Si ya cumplimos con la alineación del plano en Z, nos concentramos puramente en X
+        if (distanciaEnZ <= this.toleranciaAlineacionZ)
+        {
+            direccionFiltrada.z = 0f;
+        }
+
+       
         if (direccionTotal.x != 0f && this.enemySprite != null)
         {
             this.enemySprite.flipX = (direccionTotal.x < 0f);
         }
 
-        Vector3 velocidadFinal = direccionMovimiento.normalized * this.velocidadEnemigo;
-        this.rb.linearVelocity = new Vector3(velocidadFinal.x, this.rb.linearVelocity.y, velocidadFinal.z);
+        
+        this.direccionMovimientoCalculada = direccionFiltrada.normalized;
 
-        if (this.anim != null) this.anim.SetBool("walk", true);
+        if (this.anim != null) this.anim.SetBool("walk", this.direccionMovimientoCalculada != Vector3.zero);
     }
 
     private void IntentarAtacar()
     {
         if (this.anim != null) this.anim.SetBool("walk", false);
 
-        if (Time.time >= this.tiempoSiguienteAtaque)
+       
+        if (Time.time >= this.tiempoSiguienteAtaque && !this.estaAtacando)
         {
-            StartCoroutine(RutinaAtaqueEnemigo());
             this.tiempoSiguienteAtaque = Time.time + this.cooldownAtaque;
+            StartCoroutine(RutinaAtaqueEnemigo());
         }
     }
 
     private IEnumerator RutinaAtaqueEnemigo()
     {
         this.estaAtacando = true;
+
+        if (this.rb != null)
+        {
+            if (!this.rb.isKinematic)
+            {
+                this.rb.linearVelocity = Vector3.zero;
+                this.rb.angularVelocity = Vector3.zero;
+            }
+            this.rb.isKinematic = true;
+        }
 
         if (this.anim != null)
         {
@@ -152,20 +214,54 @@ public class EnemyIA : MonoBehaviour
             party.RecibirDanioParty(0, this.dañoAtaque);
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
 
         this.estaAtacando = false;
     }
-
-    private void OnDrawGizmosSelected()
+    public void RecibirDanioEnemigo(int cantidadDanio)
     {
-        Vector3 posicionCentroReal = this.transform.position + this.centroOffsetRangos;
+        if (this.vidaActual <= 0) return;
 
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(posicionCentroReal, this.rangoDeteccion);
+        this.vidaActual -= cantidadDanio;
+        Debug.Log($"[OVERWORLD] {this.statsEnemigo?.EnemyName} recibió {cantidadDanio} de daño. HP restante: {this.vidaActual}");
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(posicionCentroReal, this.rangoAtaque);
+        BattleVisuals misVisuales = GetComponentInChildren<BattleVisuals>();
+        if (misVisuales != null)
+        {
+            misVisuales.ChangeHealth(-cantidadDanio);
+        }
+
+        // Si la vida llega a 0, el cuerpo del enemigo maneja la muerte
+        if (this.vidaActual <= 0)
+        {
+            StartCoroutine(RutinaMuerteCuerpo());
+        }
+    }
+
+    private IEnumerator RutinaMuerteCuerpo()
+    {
+        // Bloqueamos la IA y la dejamos quieta en su lugar exacto
+        this.estaAtacando = true;
+        this.procesandoPersecucion = false;
+        this.direccionMovimientoCalculada = Vector3.zero;
+
+        if (this.rb != null)
+        {
+            this.rb.linearVelocity = Vector3.zero;
+            this.rb.isKinematic = true;
+        }
+
+        // Disparamos la animación de muerte en el sprite del propio Samurai
+        if (this.anim != null)
+        {
+            this.anim.SetTrigger("IsDead");
+        }
+
+        // Esperamos el tiempo necesario para que termine de caer (ej: 1 segundo)
+        yield return new WaitForSeconds(1f);
+
+        // Destruimos todo el GameObject del enemigo de la escena
+        Destroy(gameObject);
     }
 
     public void AsignarEstadisticasFisicas(Enemy datosCalculados)
@@ -175,5 +271,15 @@ public class EnemyIA : MonoBehaviour
         this.dañoAtaque = datosCalculados.Strength;
 
         Debug.Log($"[SÍNCRONO] {this.statsEnemigo.EnemyName} nivel {this.statsEnemigo.Level} listo en el Overworld con {this.vidaActual} de HP.");
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Vector3 posicionCentroReal = this.transform.position + this.centroOffsetRangos;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(posicionCentroReal, this.rangoDeteccion);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(posicionCentroReal, this.rangoAtaque);
     }
 }

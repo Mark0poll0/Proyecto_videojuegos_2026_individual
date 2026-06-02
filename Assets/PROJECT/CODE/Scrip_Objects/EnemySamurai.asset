@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: EnemySamurai
   m_EditorClassIdentifier: Assembly-CSharp::EnemyInfo
   EnemyName: Samurai
-  baseHP: 10
-  baseSTR: 4
-  baseIniciative: 2
-  EnemyVisualPrefrab: {fileID: 0}
+  baseHP: 30
+  baseStr: 1

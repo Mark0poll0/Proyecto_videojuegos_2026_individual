@@ -8,6 +8,4 @@ public class EnemyInfo : ScriptableObject
     public string EnemyName;
     public int baseHP;
     public int baseStr;
-    public int baseInitiative;
-    public GameObject EnemyVisualPrefab ; 
 }

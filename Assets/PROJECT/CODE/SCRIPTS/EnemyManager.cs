@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class EnemyManager : MonoBehaviour
 {
-
     [SerializeField] private EnemyInfo[] allEnemies;
     [SerializeField] private List<Enemy> currentEnemies;
     private const float LEVEL_MODIFIER = 0.5f;
@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     {
         GenerateEnemyByGame("EnemySamurai", 10);
     }
+
     private void GenerateEnemyByGame(string enemyName, int level)
     {
         for (int i = 0; i < allEnemies.Length; i++)
@@ -27,20 +28,17 @@ public class EnemyManager : MonoBehaviour
                 newEnemy.maxHP = Mathf.RoundToInt(allEnemies[i].baseHP + (allEnemies[i].baseHP * levelModifier));
                 newEnemy.currentHP = newEnemy.maxHP;
                 newEnemy.Strength = Mathf.RoundToInt(allEnemies[i].baseStr + (allEnemies[i].baseStr * levelModifier));
-                newEnemy.Initiative = Mathf.RoundToInt(allEnemies[i].baseInitiative + (allEnemies[i].baseInitiative * levelModifier));
-                newEnemy.EnemyBattleVisualPrefab = allEnemies[i].EnemyVisualPrefab;
 
                 currentEnemies.Add(newEnemy);
-
             }
         }
     }
+
     public List<Enemy> GetCurrentEnemies()
     {
         return currentEnemies;
     }
 }
-
 
 [System.Serializable]
 public class Enemy
@@ -50,7 +48,4 @@ public class Enemy
     public int currentHP;
     public int maxHP;
     public int Strength;
-    public int Initiative;
-    public GameObject EnemyBattleVisualPrefab;
-    public GameObject EnemyOverWorldVisualPrefab;
 }

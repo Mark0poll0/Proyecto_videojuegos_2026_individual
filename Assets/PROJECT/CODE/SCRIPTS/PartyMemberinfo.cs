@@ -9,9 +9,7 @@ public class PartyMemberinfo : ScriptableObject
     public int StartingLevel;
     public int baseHP;
     public int Str;
-    public int Initiative;
-    public GameObject MemberBattleVisualPrefab;
-    public GameObject MemberOverworldVisualPrefab;
+
 
 
 }

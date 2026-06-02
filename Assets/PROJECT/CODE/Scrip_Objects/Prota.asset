@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: Prota
   m_EditorClassIdentifier: Assembly-CSharp::PartyMemberinfo
   MemberName: Prota
-  StartingLevel: 1
-  baseHP: 10
-  baseSTR: 5
-  baseIniciative: 2
-  MemberBattleVisualPrefab: {fileID: 0}
-  MemberOverworldVisualPrefab: {fileID: 0}
+  StartingLevel: 7
+  baseHP: 100
+  Str: 50
