@@ -32,7 +32,23 @@ public class PartyManager : MonoBehaviour
 
         currentParty.Add(newPartyMember);
     }
+    // ⚔️ MÉTODO NUEVO: Recibir daño en tiempo real en el Overworld
+    // ⚔️ MÉTODO ACTUALIZADO: Sin caracteres especiales para evitar errores de compilador
+    public void RecibirDanioParty(int indexMiembro, int cantidadDaño)
+    {
+        if (currentParty == null || currentParty.Count <= indexMiembro) return;
 
+        // Restamos el daño al HP actual del miembro de la party
+        currentParty[indexMiembro].currentHP -= cantidadDaño;
+
+        // Blindamos para que la vida no baje de cero
+        if (currentParty[indexMiembro].currentHP < 0)
+        {
+            currentParty[indexMiembro].currentHP = 0;
+        }
+
+        Debug.Log($"[PARTY] {currentParty[indexMiembro].MemberName} recibió {cantidadDaño} de daño. HP restante: {currentParty[indexMiembro].currentHP}/{currentParty[indexMiembro].maxHP}");
+    }
     public List<PartyMember> GetCurrentParty()
     {
         return currentParty;
