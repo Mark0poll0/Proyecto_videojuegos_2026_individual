@@ -2,12 +2,14 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
     [Header("Referencias de Interfaz")]
     [SerializeField] private CanvasGroup canvasGroupPanel;
     [SerializeField] private TextMeshProUGUI textoTutorial;
+    [SerializeField] private Button botonCerrarJuego;
 
     [Header("Configuración del Desvanecimiento")]
     [SerializeField] private float duracionFade = 0.3f;
@@ -47,6 +49,13 @@ public class TutorialManager : MonoBehaviour
         if (this.canvasGroupPanel != null)
         {
             this.canvasGroupPanel.alpha = 1f;
+        }
+        
+        if (this.botonCerrarJuego != null)
+        {
+            this.botonCerrarJuego.gameObject.SetActive(false);
+
+            this.botonCerrarJuego.onClick.AddListener(CerrarAplicacion);
         }
     }
 
@@ -160,7 +169,7 @@ public class TutorialManager : MonoBehaviour
 
             // Cambiamos el texto al mensaje de cierre de la demo
             this.textoTutorial.text = "¡VICTORIA!\nHas derrotado al Jefe Samurái y completado el tutorial.";
-
+            if (this.botonCerrarJuego != null) this.botonCerrarJuego.gameObject.SetActive(true);
             // Opcional: Congela los movimientos de fondo para darle un toque dramático de fin
             Time.timeScale = 0.2f;
         }
@@ -175,9 +184,22 @@ public class TutorialManager : MonoBehaviour
 
             // Cambiamos el texto a un tono de derrota RPG clásico
             this.textoTutorial.text = "<color=red>¡HAS MUERTO!</color>\nLos Samuráis te han derrotado. Fin de la partida.";
-
+            if (this.botonCerrarJuego != null) this.botonCerrarJuego.gameObject.SetActive(true);
             // Congelamos el tiempo del juego por completo para que nadie se mueva
             Time.timeScale = 0f;
         }
+    }
+    public void CerrarAplicacion()
+    {
+        Debug.LogWarning("[FIN DEL JUEGO] Saliendo de la aplicación de forma controlada...");
+
+        // Restablecemos el TimeScale por si acaso para futuros comportamientos o transiciones de escena
+        Time.timeScale = 1f;
+
+        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }
