@@ -60,11 +60,16 @@ public class PlayerCombat : MonoBehaviour
     {
         int danioCalculado = (this.misEstadisticas != null) ? this.misEstadisticas.Fuerza : 5;
 
+        // Buscamos el pivote para mantener la rotación de la caja, pero calculamos la dirección de forma absoluta
         Transform pivot = this.transform.Find("CameraPivot");
-        Vector3 dirDerecha = pivot != null ? pivot.right : Vector3.right;
-        float factorDireccion = (this.playerSprite != null && this.playerSprite.flipX) ? -1f : 1f;
-        Vector3 dirAtaque = dirDerecha * factorDireccion;
 
+       
+        Vector3 dirBase = Vector3.right;
+
+        float factorDireccion = (this.playerSprite != null && this.playerSprite.flipX) ? -1f : 1f;
+        Vector3 dirAtaque = dirBase * factorDireccion;
+
+        // El centro de la Hitbox ahora se mantiene fiel al cuerpo del prota, sin importar cómo gires la cámara
         Vector3 centroHitbox = this.transform.position + (dirAtaque * this.distanciaOffset) + Vector3.up;
         Quaternion rotHitbox = pivot != null ? pivot.rotation : Quaternion.identity;
 
@@ -75,6 +80,7 @@ public class PlayerCombat : MonoBehaviour
             EntidadVida vidaEnemigo = col.GetComponent<EntidadVida>();
             if (vidaEnemigo != null)
             {
+                // Pasamos la posición real exacta del Prota para que la IA enemiga calcule su frente correctamente
                 vidaEnemigo.RecibirDanio(danioCalculado, this.transform.position);
             }
         }
@@ -83,12 +89,13 @@ public class PlayerCombat : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Transform pivot = this.transform.Find("CameraPivot");
-        Vector3 dirDerecha = pivot != null ? pivot.right : Vector3.right;
+        Vector3 dirBase = Vector3.right;
         float factorDireccion = (this.playerSprite != null && this.playerSprite.flipX) ? -1f : 1f;
-        Vector3 centroHitbox = this.transform.position + (dirDerecha * factorDireccion * this.distanciaOffset) + Vector3.up;
+        Vector3 centroHitbox = this.transform.position + (dirBase * factorDireccion * this.distanciaOffset) + Vector3.up;
 
         Gizmos.color = Color.red;
         Matrix4x4 matrizOriginal = Gizmos.matrix;
+
         if (pivot != null)
         {
             Gizmos.matrix = Matrix4x4.TRS(centroHitbox, pivot.rotation, Vector3.one);

@@ -6,7 +6,7 @@ public class EntidadVida : MonoBehaviour
     public int VidaMaxima { get; private set; }
     public int VidaActual { get; private set; }
     public int Fuerza { get; private set; }
-    public int Nivel => nivel; // Propiedad pública para que otros scripts lean el nivel actual
+    public int Nivel => nivel;
 
     [Header("Configuración Inicial")]
     [SerializeField] private bool esJugador;
@@ -19,6 +19,9 @@ public class EntidadVida : MonoBehaviour
     [Header("Fichas de Datos")]
     [SerializeField] private CharacterData datosJugador;
     [SerializeField] private EnemyData datosEnemigo;
+
+    [Header("Efectos Especiales")]
+    [SerializeField] private ParticleSystem particulasLevelUp;
 
     private BattleVisuals barraVisual;
     private Animator anim;
@@ -37,15 +40,12 @@ public class EntidadVida : MonoBehaviour
 
     private void InicializarEstadisticas()
     {
-        // El factor de escala aumenta un 10% por cada nivel por encima del 1
         float factorEscala = 1f + (0.1f * (this.nivel - 1));
 
         if (this.esJugador && this.datosJugador != null)
         {
             this.VidaMaxima = Mathf.RoundToInt(this.datosJugador.vidaMaxBase * factorEscala);
             this.Fuerza = Mathf.RoundToInt(this.datosJugador.fuerzaBase * factorEscala);
-
-            // Fórmula estándar: la experiencia requerida sube exponencialmente por nivel
             this.expSiguienteNivel = Mathf.RoundToInt(100 * Mathf.Pow(1.2f, this.nivel - 1));
         }
         else if (!this.esJugador && this.datosEnemigo != null)
@@ -62,7 +62,7 @@ public class EntidadVida : MonoBehaviour
         }
     }
 
-    // --- SISTEMA DE EXPERIENCIA (Método público para el Prota) ---
+    // --- SISTEMA DE EXPERIENCIA ---
     public void GanarExperiencia(int cantidadGanada)
     {
         if (!this.esJugador || this.estaMuerto) return;
@@ -70,7 +70,6 @@ public class EntidadVida : MonoBehaviour
         this.expActual += cantidadGanada;
         Debug.Log($"[PROGRESO] ¡Ganaste {cantidadGanada} EXP! Progreso actual: {this.expActual}/{this.expSiguienteNivel}");
 
-        // Bucle por si gana tanta EXP que sube más de un nivel de golpe
         while (this.expActual >= this.expSiguienteNivel)
         {
             EjecutarLevelUp();
@@ -80,24 +79,26 @@ public class EntidadVida : MonoBehaviour
     private void EjecutarLevelUp()
     {
         this.expActual -= this.expSiguienteNivel;
-        this.nivel++; // Incrementamos el nivel real
+        this.nivel++;
 
-        // Recalculamos estadísticas de daño y vida con el nuevo nivel
         InicializarEstadisticas();
-
-        // Curamos completamente al Prota al subir de nivel
         this.VidaActual = this.VidaMaxima;
+
+        if (this.particulasLevelUp != null)
+        {
+            this.particulasLevelUp.Stop();
+            this.particulasLevelUp.Play();
+        }
 
         Debug.LogWarning($"[¡LEVEL UP!] ¡Felicidades! Has subido al Nivel {this.nivel}. Nueva Vida: {this.VidaMaxima} | Nueva Fuerza: {this.Fuerza}");
 
-        // Opcional: Si tus Visuales flotantes soportan refrescar el texto del nivel, se actualiza automáticamente aquí
         if (this.barraVisual != null)
         {
             this.barraVisual.SetStartingValues(this.VidaActual, this.VidaMaxima, this.nivel);
         }
     }
 
-    // --- SISTEMA DE COMBATE ---
+    // --- SISTEMA DE COMBATE Y DAÑO ---
     public void RecibirDanio(int cantidad, Vector3 puntoImpacto)
     {
         if (this.estaMuerto || this.esInmune) return;
@@ -131,6 +132,8 @@ public class EntidadVida : MonoBehaviour
         this.esInmune = false;
     }
 
+    // --- GESTIÓN DE MUERTE Y VICTORIA ---
+    // --- GESTIÓN DE MUERTE, VICTORIA Y DERROTA ---
     private void Morir()
     {
         this.estaMuerto = true;
@@ -143,11 +146,27 @@ public class EntidadVida : MonoBehaviour
 
         if (this.anim != null) this.anim.SetTrigger("IsDead");
 
+        // --- DETECTOR DE MUERTE DEL JUGADOR (GAME OVER) ---
+        if (this.esJugador)
+        {
+            TerminarJuegoDerrota();
+            return; // Cortamos el código aquí porque el prota no se destruye del mapa
+        }
+
+        // Si no es el jugador, significa que es un enemigo
         if (!this.esJugador)
         {
-            // ¡Dar recompensa al jugador antes de desaparecer del mapa!
             EntregarRecompensaAlJugador();
-            Destroy(gameObject, 1.2f);
+
+            // Verificamos si la ficha técnica del enemigo se llama exactamente "JEFE"
+            if (this.datosEnemigo != null && this.datosEnemigo.name == "JEFE")
+            {
+                TerminarJuegoVictoria();
+            }
+            else
+            {
+                Destroy(gameObject, 1.2f);
+            }
         }
     }
 
@@ -155,19 +174,50 @@ public class EntidadVida : MonoBehaviour
     {
         if (this.datosEnemigo == null) return;
 
-        // Buscamos al Prota en la escena mediante su Tag
         GameObject protaObj = GameObject.FindGameObjectWithTag("Player");
         if (protaObj != null)
         {
             EntidadVida vidaProta = protaObj.GetComponent<EntidadVida>();
             if (vidaProta != null)
             {
-                // Escalamos la EXP entregada según el nivel que tenía este enemigo en el mapa
                 int expFinal = Mathf.RoundToInt(this.datosEnemigo.experienciaBase * (1f + 0.2f * (this.nivel - 1)));
-
-                // Le inyectamos la experiencia al protagonista
                 vidaProta.GanarExperiencia(expFinal);
             }
         }
+    }
+    private void TerminarJuegoVictoria()
+    {
+        TutorialManager tutorial = FindAnyObjectByType<TutorialManager>();
+        if (tutorial != null)
+        {
+            tutorial.MostrarPantallaVictoria();
+        }
+        else
+        {
+            CerrarAplicacionForzado();
+        }
+    }
+    // --- NUEVO: GESTIÓN DE DERROTA ---
+    private void TerminarJuegoDerrota()
+    {
+        TutorialManager tutorial = FindAnyObjectByType<TutorialManager>();
+        if (tutorial != null)
+        {
+            // Usaremos el mismo método de la UI pero pasándole el texto de fracaso
+            tutorial.MostrarPantallaDerrota();
+        }
+        else
+        {
+            CerrarAplicacionForzado();
+        }
+    }
+
+    private void CerrarAplicacionForzado()
+    {
+        Debug.LogWarning("[FIN DEL JUEGO] Aplicación cerrada...");
+        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

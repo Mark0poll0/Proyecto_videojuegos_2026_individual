@@ -25,7 +25,6 @@ public class BattleVisuals : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
 
         // Si te olvidaste de arrastrar el slider en el inspector, 
-        // lo buscamos automáticamente en sus hijos para evitar que falle
         if (this.healthbar == null)
         {
             this.healthbar = GetComponentInChildren<Slider>();
