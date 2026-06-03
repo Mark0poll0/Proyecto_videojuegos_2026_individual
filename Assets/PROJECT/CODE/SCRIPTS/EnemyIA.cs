@@ -31,6 +31,9 @@ public class EnemyIA : MonoBehaviour
     private Vector3 direccionMovimientoCalculada;
     private bool procesandoPersecucion;
 
+    // Guardamos la referencia de la cámara principal para calcular la dirección en pantalla
+    private Transform mainCameraTransform;
+
     private void Start()
     {
         this.rb = GetComponent<Rigidbody>();
@@ -39,6 +42,11 @@ public class EnemyIA : MonoBehaviour
         if (playerObj != null)
         {
             this.targetPlayer = playerObj.transform;
+        }
+
+        if (Camera.main != null)
+        {
+            this.mainCameraTransform = Camera.main.transform;
         }
 
         this.rb.constraints = RigidbodyConstraints.FreezeRotation;
@@ -126,12 +134,18 @@ public class EnemyIA : MonoBehaviour
             direccionFiltrada.z = 0f;
         }
 
-        if (direccionTotal.x != 0f && this.enemySprite != null)
-        {
-            this.enemySprite.flipX = (direccionTotal.x < 0f);
-        }
-
         this.direccionMovimientoCalculada = direccionFiltrada.normalized;
+
+        // 🌟 SOLUCIÓN AL GIRO DE CÁMARA (FLIP RELATIVO A LA PANTALLA) 🌟
+        if (this.enemySprite != null && this.mainCameraTransform != null)
+        {
+            // Proyectamos el vector que va del enemigo al jugador en el espacio de la cámara.
+            // Esto nos dice si el jugador está a la derecha o izquierda en la pantalla actual.
+            Vector3 direccionRelativaCamara = this.mainCameraTransform.InverseTransformDirection(direccionTotal);
+
+            // Si el valor X relativo es menor a 0, significa que el jugador se ve a la izquierda de la pantalla
+            this.enemySprite.flipX = (direccionRelativaCamara.x < 0f);
+        }
 
         if (this.anim != null) this.anim.SetBool("walk", this.direccionMovimientoCalculada != Vector3.zero);
     }
@@ -163,7 +177,15 @@ public class EnemyIA : MonoBehaviour
 
         if (this.anim != null) this.anim.SetTrigger("IsAttack");
 
-        // Buscamos nuestra propia fuerza local unificada en el script nuevo
+        // 🌟 ORIENTACIÓN EN EL ATACANTE ANTES DE HACER DAÑO 🌟
+        // Nos aseguramos de que el sprite mire al jugador adecuadamente al iniciar el golpe
+        if (this.enemySprite != null && this.targetPlayer != null && this.mainCameraTransform != null)
+        {
+            Vector3 direccionTotal = (this.targetPlayer.position - this.transform.position);
+            Vector3 direccionRelativaCamara = this.mainCameraTransform.InverseTransformDirection(direccionTotal);
+            this.enemySprite.flipX = (direccionRelativaCamara.x < 0f);
+        }
+
         EntidadVida misEstadisticas = GetComponent<EntidadVida>();
         int danioEnemigo = (misEstadisticas != null) ? misEstadisticas.Fuerza : 2;
 

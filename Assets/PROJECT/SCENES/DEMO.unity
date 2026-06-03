@@ -1972,6 +1972,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7057631719552261711, guid: 66114b396e808004a8c769e74d426d7b, type: 3}
   m_PrefabInstance: {fileID: 190439438}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &404714966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4526093430496228531, guid: 8818801dfbe4b1043a49fd86ce8eb483, type: 3}
+  m_PrefabInstance: {fileID: 6916159198926712839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &408891817 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1b6d4dfc3e5421f46b679aec43c6e7b2, type: 3}
@@ -17637,6 +17642,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3321406386632396750, guid: 8818801dfbe4b1043a49fd86ce8eb483, type: 3}
   m_PrefabInstance: {fileID: 6916159198926712839}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4083330917716577528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404714966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1973b5feb2a2b6644b8db53e038f67a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BillboardEffect
 --- !u!1001 &6916159198926712839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17704,7 +17721,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4526093430496228531, guid: 8818801dfbe4b1043a49fd86ce8eb483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4083330917716577528}
   m_SourcePrefab: {fileID: 100100000, guid: 8818801dfbe4b1043a49fd86ce8eb483, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
