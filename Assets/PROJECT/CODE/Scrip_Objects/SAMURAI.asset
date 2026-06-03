@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1879d46786095047b4741d798fe2cb1, type: 3}
-  m_Name: PROTA
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  nombre: PROTA
-  vidaMaxBase: 100
-  fuerzaBase: 10
+  m_Script: {fileID: 11500000, guid: 2562b6df615979544bda152fa31e9acb, type: 3}
+  m_Name: SAMURAI
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  nombreEnemigo: SAMURAI
+  vidaMaxBase: 30
+  fuerzaBase: 5
+  experienciaBase: 50
