@@ -29,7 +29,7 @@ El contenido está organizado siguiendo una jerarquía profesional para facilita
 * **Institución:** Universidad Nacional Mayor de San Marcos (UNMSM)
 * **Carrera:** Computación Científica - Curso Electivo Creacion de Videojuegos y Desarrollo Movil
 
-## 🛠️ Instalación y Uso ===>  [REQUIREMENTS.md](./REQUIREMENTS.md)
+## 🛠️ Instalación y Uso ===>  [REQUIREMENTS.md](./requirements.md)
 1. Asegúrate de tener instalada la versión exacta de **Unity 6 (6000.0.4.3f1)**.
 2. Asegurar de tener instalado Visual Studio 2022 
     * **Desarrollo de escritorio de .NET:** (Necesario para el soporte de C# y scripts del jugador).

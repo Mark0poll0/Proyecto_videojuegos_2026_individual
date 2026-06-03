@@ -1,0 +1,709 @@
+fileFormatVersion: 2
+guid: 1a1002f36601f1147ab2a5f40beab813
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1078
+        width: 256
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d85d99b491bff6746aee467505fbac97
+      internalID: -487996402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1080
+        width: 256
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7f928b3dc987248b385d177a729ad2
+      internalID: -249769376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1080
+        width: 256
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d0dd81fe7e379448f6b38838cb0447
+      internalID: -387683810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1078
+        width: 256
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef96698d0e7d66c4bbaf9bb56ede5aad
+      internalID: -141639145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1076
+        width: 256
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a26bfaa24eaa67645821979fc8c5b0f0
+      internalID: 1966811395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 818
+        width: 256
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d2dd4fa38a7804d983c64ea07e9f28
+      internalID: -64930808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 820
+        width: 256
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9228ee0ef00e590428add542fa455ceb
+      internalID: -274225729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 822
+        width: 256
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a637ffa68390d74581dc873412ff511
+      internalID: -1596940297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 822
+        width: 256
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83b38335d755174e95781b8e9e86b73
+      internalID: 1213259010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 823
+        width: 256
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d85fe6e91d1cac498f43eaa651e1c94
+      internalID: -1004311770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 564
+        width: 256
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4029e416f3218ff4ab805c6f8079667d
+      internalID: -768071495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 565
+        width: 256
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ed137b71e60d7498c91826bb4cad4b
+      internalID: -1974616272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 562
+        width: 256
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 591bb84419c865e4b873a7062157a47d
+      internalID: -619281635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 560
+        width: 256
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e076b7f3ca50934393ddcc8b01bc142
+      internalID: 915847443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 559
+        width: 256
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f116925ce4eb44bb419fdd4ac1aef7
+      internalID: -1816008761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 302
+        width: 256
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db18c3e4b8638824fb88212fe4609d6e
+      internalID: 1979274783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 302
+        width: 256
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e60c6805b413b3c41bc715cb1ea11a2b
+      internalID: -289203319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 301
+        width: 256
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 460775c3560fe504490138cbf0dc7ed1
+      internalID: -324378342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_18
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 302
+        width: 256
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3bfaa6bf92d664c844d9860605b39e
+      internalID: -483052199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_19
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 301
+        width: 256
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659a6df6451c39f41b62a1b538e013ab
+      internalID: -1491617388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 256
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b3cbcdb4106ff4aae96c1a4afa834a
+      internalID: -1799837264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 46
+        width: 256
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e36bdb6a0014c7449ce8cc72f90314c
+      internalID: -1243394254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_22
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 46
+        width: 256
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72fa5427ed507846bcb96f8fa7e1f52
+      internalID: 835094489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_23
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 46
+        width: 256
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5ee238c7fcad548934c98efb5a596a
+      internalID: -618864727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_24
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 46
+        width: 256
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67374de43dc7c9c48a13c1f0b168d2f9
+      internalID: 1277012854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f7912ad73f1a26d47a9c0d009ce9fe85
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: False
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_0: -487996402
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_1: -249769376
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_10: -768071495
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_11: -1974616272
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_12: -619281635
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_13: 915847443
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_14: -1816008761
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_15: 1979274783
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_16: -289203319
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_17: -324378342
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_18: -483052199
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_19: -1491617388
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_2: -387683810
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_20: -1799837264
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_21: -1243394254
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_22: 835094489
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_23: -618864727
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_24: 1277012854
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_3: -141639145
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_4: 1966811395
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_5: -64930808
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_6: -274225729
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_7: -1596940297
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_8: 1213259010
+      samurai-character_dying_bleeding_while_maintaining_pixel_art_style-v1_9: -1004311770
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
